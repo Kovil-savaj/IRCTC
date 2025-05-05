@@ -1,0 +1,258 @@
+/* Auth Pages Styling */
+:root {
+    --auth-primary: #1a237e;
+    --auth-secondary: #0d47a1;
+    --auth-accent: #2962ff;
+    --auth-bg: #f8f9fa;
+    --auth-text: #333333;
+    --auth-border: #e0e0e0;
+    --auth-shadow: rgba(0, 0, 0, 0.1);
+    --auth-gradient: linear-gradient(135deg, var(--auth-primary), var(--auth-secondary));
+}
+
+body {
+    background: var(--auth-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 10px 30px var(--auth-shadow);
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+}
+
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--auth-gradient);
+}
+
+.auth-card h2 {
+    color: var(--auth-primary);
+    font-weight: 600;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    position: relative;
+}
+
+.auth-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--auth-gradient);
+    border-radius: 2px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group label {
+    color: var(--auth-text);
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 1rem;
+}
+
+.form-control {
+    border: 2px solid var(--auth-border);
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    height: auto;
+}
+
+.form-control:focus {
+    border-color: var(--auth-accent);
+    box-shadow: 0 0 0 3px rgba(41, 98, 255, 0.1);
+    background: white;
+}
+
+.form-check {
+    margin: 10px 0;
+}
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.2em;
+}
+
+.form-check-label {
+    margin-left: 8px;
+    color: var(--auth-text);
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--auth-gradient);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(41, 98, 255, 0.3);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--auth-primary);
+    color: var(--auth-primary);
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+}
+
+.btn-outline-primary:hover {
+    background: var(--auth-primary);
+    color: white !important;
+    transform: translateY(-2px);
+    text-decoration: none !important;
+}
+
+.btn-outline-primary:hover i {
+    color: white !important;
+}
+
+.text-muted {
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: block;
+    color: #666;
+}
+
+/* Register page specific styles */
+#registerForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+#registerForm .form-group.full-width {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+}
+
+#registerForm .form-control {
+    height: auto;
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form validation styles */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background-image: none;
+}
+
+.form-control.is-valid {
+    border-color: #198754;
+    background-image: none;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* Link styles */
+.auth-card a {
+    color: var(--auth-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.auth-card a:hover {
+    color: var(--auth-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .auth-container {
+        max-width: 600px;
+    }
+    
+    #registerForm {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .auth-container {
+        max-width: 100%;
+    }
+    
+    .auth-card {
+        padding: 25px;
+    }
+    
+    .auth-card h2 {
+        font-size: 1.6rem;
+    }
+    
+    .form-control {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
+    
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+} 

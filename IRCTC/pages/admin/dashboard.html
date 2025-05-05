@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - IRCTC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>IRCTC Admin</h3>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-section="overview">
+                        <i class="bi bi-house-door"></i> Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-section="users">
+                        <i class="bi bi-people"></i> Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-section="trains">
+                        <i class="bi bi-truck"></i> Trains
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-section="profile">
+                        <i class="bi bi-person"></i> Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="logout()">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="content-section active">
+                <h2>Admin Overview</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Tickets by Class</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Class</th>
+                                                <th>Number of Tickets</th>
+                                                <th>Revenue (₹)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>First Class</td>
+                                                <td>12</td>
+                                                <td>1,20,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>AC Tier 1</td>
+                                                <td>19</td>
+                                                <td>1,90,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>AC Tier 2</td>
+                                                <td>15</td>
+                                                <td>1,50,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tatkal</td>
+                                                <td>8</td>
+                                                <td>80,000</td>
+                                            </tr>
+                                            <tr class="table-primary">
+                                                <td><strong>Total</strong></td>
+                                                <td><strong>54</strong></td>
+                                                <td><strong>5,40,000</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Quarterly Sales</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Quarter</th>
+                                                <th>Sales (₹)</th>
+                                                <th>Growth</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Q1</td>
+                                                <td>65,00,000</td>
+                                                <td class="text-success">+5%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Q2</td>
+                                                <td>59,00,000</td>
+                                                <td class="text-danger">-9%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Q3</td>
+                                                <td>80,00,000</td>
+                                                <td class="text-success">+35%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Q4</td>
+                                                <td>81,00,000</td>
+                                                <td class="text-success">+1%</td>
+                                            </tr>
+                                            <tr class="table-primary">
+                                                <td><strong>Total</strong></td>
+                                                <td><strong>2,85,00,000</strong></td>
+                                                <td><strong>+8%</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Popular Routes</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Route</th>
+                                                <th>Bookings</th>
+                                                <th>Revenue (₹)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Delhi - Mumbai</td>
+                                                <td>150</td>
+                                                <td>37,50,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Howrah - Delhi</td>
+                                                <td>120</td>
+                                                <td>30,00,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mumbai - Howrah</td>
+                                                <td>100</td>
+                                                <td>25,00,000</td>
+                                            </tr>
+                                            <tr class="table-primary">
+                                                <td><strong>Total</strong></td>
+                                                <td><strong>370</strong></td>
+                                                <td><strong>92,50,000</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Train Performance</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Train</th>
+                                                <th>Occupancy</th>
+                                                <th>Revenue (₹)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Rajdhani Express</td>
+                                                <td>85%</td>
+                                                <td>42,50,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Vande Bharat</td>
+                                                <td>95%</td>
+                                                <td>47,50,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Duronto Express</td>
+                                                <td>75%</td>
+                                                <td>37,50,000</td>
+                                            </tr>
+                                            <tr class="table-primary">
+                                                <td><strong>Average</strong></td>
+                                                <td><strong>85%</strong></td>
+                                                <td><strong>42,50,000</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users" class="content-section">
+                <h2>User Management</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
+                                        <th>Tickets Booked</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody">
+                                    <!-- Users will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trains Section -->
+            <section id="trains" class="content-section">
+                <h2>Train Management</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Register New Train</h5>
+                        <form id="trainForm" class="train-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="trainName">Train Name</label>
+                                        <input type="text" class="form-control" id="trainName" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="trainNumber">Train Number</label>
+                                        <input type="text" class="form-control" id="trainNumber" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fromStation">From Station</label>
+                                        <input type="text" class="form-control" id="fromStation" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="toStation">To Station</label>
+                                        <input type="text" class="form-control" id="toStation" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="seats">Number of Seats</label>
+                                        <input type="number" class="form-control" id="seats" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="ownership">Ownership</label>
+                                        <input type="text" class="form-control" id="ownership" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Register Train</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Registered Trains</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Train Number</th>
+                                        <th>Name</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Seats</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="trainsTableBody">
+                                    <!-- Trains will be dynamically populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="content-section">
+                <h2>Admin Profile</h2>
+                <div class="profile-section">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            A
+                        </div>
+                        <div class="profile-info">
+                            <h3>Admin</h3>
+                            <p><i class="bi bi-envelope me-2"></i>admin@irctc.com</p>
+                            <p><i class="bi bi-phone me-2"></i>+91 9876543210</p>
+                            <p><i class="bi bi-briefcase me-2"></i>System Administrator</p>
+                        </div>
+                    </div>
+                    <form id="adminProfileForm" class="profile-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="adminEmail">
+                                        <i class="bi bi-envelope me-2"></i>Email Address
+                                    </label>
+                                    <input type="email" class="form-control" id="adminEmail" value="admin@irctc.com" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="adminMobile">
+                                        <i class="bi bi-phone me-2"></i>Mobile Number
+                                    </label>
+                                    <input type="tel" class="form-control" id="adminMobile" value="9876543210" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="adminRole">
+                                        <i class="bi bi-briefcase me-2"></i>Role
+                                    </label>
+                                    <input type="text" class="form-control" id="adminRole" value="System Administrator" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="adminDepartment">
+                                        <i class="bi bi-building me-2"></i>Department
+                                    </label>
+                                    <input type="text" class="form-control" id="adminDepartment" value="IT Operations" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminAddress">
+                                <i class="bi bi-geo-alt me-2"></i>Office Address
+                            </label>
+                            <textarea class="form-control" id="adminAddress" rows="3" disabled>IRCTC Headquarters, New Delhi, India</textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="changeAdminPassword">
+                                <label class="form-check-label" for="changeAdminPassword">
+                                    <i class="bi bi-lock me-2"></i>Change Password
+                                </label>
+                            </div>
+                        </div>
+                        <div id="adminPasswordFields" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="currentAdminPassword">Current Password</label>
+                                        <input type="password" class="form-control" id="currentAdminPassword" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="newAdminPassword">New Password</label>
+                                        <input type="password" class="form-control" id="newAdminPassword" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="confirmNewAdminPassword">Confirm New Password</label>
+                                        <input type="password" class="form-control" id="confirmNewAdminPassword" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <button type="button" class="edit-profile-btn" onclick="toggleAdminEditMode()">
+                                <i class="bi bi-pencil"></i>Edit Profile
+                            </button>
+                            <button type="submit" class="btn btn-primary" style="display: none;" id="saveAdminProfileBtn">
+                                <i class="bi bi-check2 me-2"></i>Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteUserModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this user?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Success</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="successMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../assets/js/admin.js"></script>
+</body>
+</html> 
